@@ -1,4 +1,5 @@
 
+require 'nokogiri'
 require_relative 'url'
 
 class NYCWeather
@@ -8,10 +9,10 @@ class NYCWeather
 	end
 
 	def parse_weather(content)
-		weather = ''
+		weather = 0
 		doc = Nokogiri::HTML(content)
 		doc.xpath('//li[@id = "feed-main"]/div[@class = "info"]/strong[@class = "temp"]').each do |node|
-		 	weather = node.text.strip
+		 	weather = node.text.tr('°', '').to_i
 		end
 		weather
 	end
@@ -21,8 +22,12 @@ class NYCWeather
 		parse_weather(content)
 	end
 
+	def to_celsius
+		(@weather - 32) * 5/9
+	end
+
 	def to_s
-		puts "The weather today in New York is: #{@weather} farenheit!"
+		puts "The weather today in New York is: #{@weather}° farenheit | #{to_celsius}° celsius!"
 	end
 end
 
