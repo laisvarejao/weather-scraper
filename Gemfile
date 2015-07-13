@@ -1,4 +1,8 @@
 # A sample Gemfile
 source "https://rubygems.org"
+
+# Use nokogiri as the HTML scraper
 gem 'nokogiri'
-# gem "rails"
+
+# Use sinatra as the web framework
+gem 'sinatra'
