@@ -4,8 +4,6 @@ require './scraper/url'
 
 class NYCWeather
 
-	@weather
-
 	def initialize
 		fetch_weather
 	end
