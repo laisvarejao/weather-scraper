@@ -1,2 +1,2 @@
 # weather-scraper
-A simple HTML scraper that shows the current weather (farenheit & celsius) in NYC.
+A simple HTML scraper that shows the current weather (fahrenheit & celsius) in NYC.
