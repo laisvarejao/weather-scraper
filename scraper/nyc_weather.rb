@@ -15,7 +15,7 @@ class NYCWeather
 
 	def parse_weather(content)
 		doc = Nokogiri::HTML(content)
-		doc.xpath('//li[@id = "feed-main"]/div[@class = "info"]/strong[@class = "temp"]').each do |node|
+		doc.xpath('//*[@id="feed-tabs"]/ul/li[1]/div/div[2]/div/span[1]').each do |node|
 		 	@weather = node.text.tr('°', '').to_i
 		end
 	end
